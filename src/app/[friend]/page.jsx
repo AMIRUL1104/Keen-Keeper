@@ -126,7 +126,12 @@ async function FriendDetails({ params }) {
             </p>
             <div className="grid grid-cols-3 gap-2">
               {checkIn.map(({ icon, label }) => (
-                <CheckInButton key={label} icon={icon} label={label} />
+                <CheckInButton
+                  key={label}
+                  icon={icon}
+                  label={label}
+                  name={data.name}
+                />
               ))}
             </div>
           </div>

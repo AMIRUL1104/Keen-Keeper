@@ -1,5 +1,6 @@
 import { House, Clock2, ChartLine } from "lucide-react";
 import Link from "next/link";
+import { useContext } from "react";
 
 function Navbar() {
   return (
