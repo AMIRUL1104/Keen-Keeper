@@ -1,10 +1,9 @@
 "use client";
 import { TimelineContext } from "@/context/TimelineContest";
 import { useContext } from "react";
-
+import { toast } from "react-toastify";
 function CheckInButton({ icon, label, name }) {
   const { data, setData } = useContext(TimelineContext);
-  console.log("timeline context ", data);
 
   const handleTimeLine = () => {
     const now = new Date();
@@ -14,10 +13,21 @@ function CheckInButton({ icon, label, name }) {
       longDate: new Intl.DateTimeFormat("en-US", { dateStyle: "full" }).format(
         now,
       ),
-      // "Thursday, April 16, 2026"
     };
 
     setData([...data, { label, name, ...formattedData }]);
+    // add relevant toast notification add name and label
+
+    toast.success(`Check-in successful for ${name} (${label})!`, {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   };
 
   return (
