@@ -9,6 +9,7 @@ import {
   Video,
 } from "lucide-react";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
 async function FriendDetails({ params }) {
   const { friend } = await params;
@@ -17,7 +18,7 @@ async function FriendDetails({ params }) {
   const friendsData = await response.json();
   const data = friendsData.find((item) => item.id === parseInt(friend));
 
-  if (!data) return <div className="p-6 text-gray-500">Friend not found!</div>;
+  if (!data) notFound();
 
   const statsData = [
     { number: data.days_since_contact, label: "Days since contact" },
@@ -33,7 +34,6 @@ async function FriendDetails({ params }) {
 
   return (
     <div className="my-6 px-4 sm:px-6 lg:px-16">
-      {/* main layout: mobile = stack, lg = side by side */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* ── LEFT COLUMN ── */}
         <div className="lg:col-span-1 flex flex-col gap-3">

@@ -13,6 +13,13 @@ function TimelinePage() {
       <h1 className="text-3xl font-bold text-gray-900 mb-6">Timeline</h1>
 
       <div className="relative">
+        {data.length === 0 && (
+          <div className="text-center py-20">
+            <p className="text-gray-500 text-lg">
+              No check-ins yet. Start by checking in!
+            </p>
+          </div>
+        )}
         <ul className="space-y-4">
           {data.map((item, i) => (
             <li
