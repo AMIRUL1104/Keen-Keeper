@@ -19,7 +19,7 @@ import { TimelineContext } from "./TimelineContest";
 import { useState, useEffect } from "react";
 
 function TimelineContextProvider({ children }) {
-  const [data, setData] = useState([]); // শুরুতে খালি অ্যারে
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     const storedData = localStorage.getItem("timelineData");
