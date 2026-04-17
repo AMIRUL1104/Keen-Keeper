@@ -1,10 +1,10 @@
 "use client";
-import { TimelineContext } from "@/context/TimelineContest";
-import { useContext } from "react";
+
 import { Pie, PieChart, Cell, ResponsiveContainer } from "recharts";
 
 export default function StatsPage({ isAnimationActive = true }) {
-  const { data } = useContext(TimelineContext);
+  const storedData = localStorage.getItem("timelineData");
+  const data = storedData ? JSON.parse(storedData) : [];
 
   const chartData = [
     { name: "Call", value: 0, fill: "#244D3F" },
@@ -44,7 +44,7 @@ export default function StatsPage({ isAnimationActive = true }) {
       <h1 className="sm:text-4xl text-2xl font-bold text-gray-800 text-left mb-4">
         Friendship Analytics
       </h1>
-      <div className="w-full max-w-[550px] aspect-square max-h-[80vh] bg-white rounded-xl shadow-md p-6">
+      <div className="w-full max-w-137.5 aspect-square max-h-[80vh] bg-white rounded-xl shadow-md p-6">
         <p className="text-lg font-semibold text-left mb-4">
           By interaction type
         </p>

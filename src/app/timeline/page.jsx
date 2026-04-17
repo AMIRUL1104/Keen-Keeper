@@ -14,7 +14,6 @@ function TimelinePage() {
       // Show all items
       const storedData = localStorage.getItem("timelineData");
       const initialData = storedData ? JSON.parse(storedData) : [];
-      console.log(initialData);
 
       setData(initialData);
     } else {
@@ -22,7 +21,6 @@ function TimelinePage() {
 
       const storedData = localStorage.getItem("timelineData");
       const initialData = storedData ? JSON.parse(storedData) : [];
-      console.log(initialData);
 
       const filteredData = initialData.filter(
         (item) => item.label.toLowerCase() === filterValue,
