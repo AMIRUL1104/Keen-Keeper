@@ -10,11 +10,11 @@ function Footer() {
     <footer className="w-full mt-16">
       {/* main section */}
       <div className="bg-[#244D3F] py-8 text-center text-sm text-gray-300 flex flex-col items-center justify-center gap-6 px-4">
-        <div className="max-w-[150px] sm:max-w-[180px]">
+        <div className="max-w-37.5 sm:max-w-45">
           <Image src={logo} alt="KeenKeeper Logo" priority />
         </div>
 
-        <p className="max-w-[280px] sm:max-w-md leading-relaxed">
+        <p className="max-w-70 sm:max-w-md leading-relaxed">
           Your personal shelf of meaningful connections. Browse, tend, and
           nurture the relationships that matter most.
         </p>

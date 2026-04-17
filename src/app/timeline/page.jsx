@@ -5,12 +5,57 @@ import { LucideVideo, MessageCircleMore, PhoneCall } from "lucide-react";
 import { useContext } from "react";
 
 function TimelinePage() {
-  const { data } = useContext(TimelineContext);
+  const { data, setData } = useContext(TimelineContext);
+
+  const handleFilterChange = (e) => {
+    const filterValue = e.target.value.toLowerCase();
+    // Implement filter logic here
+    if (filterValue === "") {
+      // Show all items
+      const storedData = localStorage.getItem("timelineData");
+      const initialData = storedData ? JSON.parse(storedData) : [];
+      console.log(initialData);
+
+      setData(initialData);
+    } else {
+      // Filter items based on label
+
+      const storedData = localStorage.getItem("timelineData");
+      const initialData = storedData ? JSON.parse(storedData) : [];
+      console.log(initialData);
+
+      const filteredData = initialData.filter(
+        (item) => item.label.toLowerCase() === filterValue,
+      );
+      setData(filteredData);
+    }
+  };
 
   return (
     <div className="my-6 px-4 sm:px-6 lg:px-30">
       {/* Page Title */}
       <h1 className="text-3xl font-bold text-gray-900 mb-6">Timeline</h1>
+
+      {/* FILTER DROPDOWN */}
+      <div className="mb-6 max-w-sm">
+        <label
+          htmlFor="filter"
+          className="block text-sm font-medium text-gray-700 mb-1"
+        >
+          Filter by Type
+        </label>
+        <select
+          id="filter"
+          name="filter"
+          onChange={handleFilterChange}
+          className="block w-full rounded-md border-gray-300 shadow-sm focus:border-[#244D3F] focus:ring focus:ring-[#244D3F] focus:ring-opacity-50"
+        >
+          <option value="">All</option>
+          <option value="call">Call</option>
+          <option value="text">Text</option>
+          <option value="video">Video</option>
+        </select>
+      </div>
 
       <div className="relative">
         {data.length === 0 && (
