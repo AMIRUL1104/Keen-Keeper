@@ -7,9 +7,9 @@ export default function StatsPage({ isAnimationActive = true }) {
   const { data } = useContext(TimelineContext);
 
   const chartData = [
-    { name: "Call", value: 0, fill: "#0088FE" },
+    { name: "Call", value: 0, fill: "#244D3F" },
     { name: "Text", value: 0, fill: "#00C49F" },
-    { name: "Video", value: 0, fill: "#FFBB28" },
+    { name: "Video", value: 0, fill: "#8528ff" },
   ];
 
   if (data.length !== 0) {
@@ -26,7 +26,11 @@ export default function StatsPage({ isAnimationActive = true }) {
 
   if (data.length === 0) {
     return (
-      <div className="flex items-center justify-center h-screen w-full">
+      <div className="flex items-center flex-col justify-center h-screen w-full">
+        <h1 className="sm:text-4xl text-2xl font-bold text-gray-800 text-left mb-4">
+          Friendship Analytics
+        </h1>
+
         <p className="text-gray-500 text-sm">
           No data available. Please check in with your frienlods to see stats
           here.
@@ -36,8 +40,14 @@ export default function StatsPage({ isAnimationActive = true }) {
   }
 
   return (
-    <div className="flex items-center justify-center h-screen w-full">
-      <div className="w-full max-w-[550px] aspect-square max-h-[80vh] ">
+    <div className="flex items-center flex-col justify-center h-screen w-full">
+      <h1 className="sm:text-4xl text-2xl font-bold text-gray-800 text-left mb-4">
+        Friendship Analytics
+      </h1>
+      <div className="w-full max-w-[550px] aspect-square max-h-[80vh] bg-white rounded-xl shadow-md p-6">
+        <p className="text-lg font-semibold text-left mb-4">
+          By interaction type
+        </p>
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
             <Pie
